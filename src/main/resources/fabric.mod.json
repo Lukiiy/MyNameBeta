@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "myname",
+  "version": "${version}",
+
+  "name": "MyName",
+  "description": "Displays your nametag in game!",
+  "authors": [
+      "Lukiiy"
+  ],
+  "contact": {
+    "sources": "https://github.com/Lukiiy/MyNameBeta",
+    "issues": "https://github.com/Lukiiy/MyNameBeta/issues"
+  },
+
+  "license": "MIT",
+  "icon": "assets/myName/icon.png",
+
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "me.lukiiy.myName.MyName"
+    ]
+  },
+  "mixins": [
+    "myname.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.13.3",
+    "minecraft": "1.0.0-beta.7.3"
+  }
+}
