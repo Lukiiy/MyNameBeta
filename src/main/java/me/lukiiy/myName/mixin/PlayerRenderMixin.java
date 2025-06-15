@@ -14,10 +14,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(PlayerEntityRenderer.class)
 public class PlayerRenderMixin {
     @Inject(method = "method_821(Lnet/minecraft/entity/player/PlayerEntity;DDD)V", at = @At("HEAD"), cancellable = true)
-    private void myName_render(PlayerEntity d, double e, double f, double par4, CallbackInfo ci) {
-        if (MyName.mc.currentScreen != null) return;
+    private void myName$render(PlayerEntity d, double e, double f, double par4, CallbackInfo ci) {
+        if (MyName.mc.currentScreen != null || d != MyName.mc.player) return; // safeyy
 
-        ((LabelRenderAccessor) this).renderLabel(d, d.name, e, f, par4, 64);
+        double y = d.method_1373() ? f - .125 : f;
+        ((LabelRenderAccessor) this).myName$renderLabel(d, d.name, e, y, par4, 32);
+
         ci.cancel();
     }
 }

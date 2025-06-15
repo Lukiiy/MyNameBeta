@@ -8,5 +8,5 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 @Mixin(LivingEntityRenderer.class)
 public interface LabelRenderAccessor {
     @Invoker("method_818")
-    void renderLabel(LivingEntity entity, String str, double x, double y, double z, int dist);
+    void myName$renderLabel(LivingEntity entity, String str, double x, double y, double z, int dist);
 }

@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Minecraft.class)
 public class MinecraftMixin {
     @Inject(method = "init", at = @At("TAIL"))
-    private void myName_getGameInstnace(CallbackInfo ci) {
+    private void myName$getGameInstance(CallbackInfo ci) {
         MyName.mc = (Minecraft) (Object) this;
     }
 }
