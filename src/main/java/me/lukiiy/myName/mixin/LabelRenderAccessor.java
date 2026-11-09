@@ -1,12 +1,12 @@
 package me.lukiiy.myName.mixin;
 
-import net.minecraft.client.render.entity.LivingEntityRenderer;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.client.render.entity.MobRenderer;
+import net.minecraft.entity.mob.MobEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
-@Mixin(LivingEntityRenderer.class)
-public interface LabelRenderAccessor {
-    @Invoker("method_818")
-    void myName$renderLabel(LivingEntity entity, String str, double x, double y, double z, int dist);
+@Mixin(MobRenderer.class)
+public interface LabelRenderAccessor<T extends MobEntity> {
+    @Invoker("renderNameTag")
+    void myName$renderLabel(T entity, String name, double dx, double dy, double dz, int range);
 }
